@@ -1,0 +1,108 @@
+</table>
+<table class="table">
+<thead>
+<tr>
+  <th scope="col">comment</th>
+  <th scope="col">project</th>
+<!--      <th scope="col">report</th>-->
+
+</tr>
+</thead>
+{% for com in comment %}
+    <tr>
+
+<td>{{ com.comment }}</td>
+<td>{{ com.project_id }}</td>
+   <td >         <button class="btn btn-danger"> <a class="nav-link" style="color: white;" href="{% url 'AddReport'%}">Report</a></button>  
+   </td>
+      </tr>
+
+{% endfor %}
+
+<body align='center'>
+  <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">change password</button>
+    </form>
+
+</body>
+
+
+
+</tbody>
+</table>
+
+<div style="border:2px  solid; border-radius: 20px;width: 500px; text-align:center;margin:2px " class="rounded bg-info p-2 text-dark bg-opacity-10">
+  <div style="margin:2px auto ; text-align: center">
+  <h2 class="text-center" style="text-align: center">Sign up</h2>
+  <form method="post" style="text-align: center">
+    {% csrf_token %}
+    {% for field in form %}
+      <p >
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <small style="color: grey"></small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button  class="btn btn-primary" type="submit">Sign up</button>
+  </form>
+
+    </div>
+  </div>
+
+  <form method="POST" class="form-group" style="text-align: center" class="form-group ">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">add project</button>
+</form>
+
+{% for project in highestRate %}
+
+<div class="card-columns">
+<div class="card  style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ project.title }}</h5>
+    <p class="card-text">{{project.avg_rate}} </p>
+  </div> 
+</div>
+</div>{% endfor %}
+<!--<table class="table">-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th scope="col">name</th>-->
+<!--      <th scope="col">email</th>-->
+<!--      <th scope="col">firsname</th>-->
+<!--      <th scope="col">lastname</th>-->
+<!--         <th scope="col">phone</th>-->
+
+<!--    </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--    <tr>-->
+<!--      <th scope="row">{{user.username}}</th>-->
+<!--      <td>{{user.email}}</td>-->
+<!--      <td>{{user.first_name}}</td>-->
+<!--      <td>{{user.last_name}}</td>-->
+<!--        <td>{{ user.phone}}</td>-->
+
+<!--    </tr>-->
+
+
+<!--  </tbody>-->
+<!--</table>-->
+<!--<div><img src="{{pro.picture.url}}"></div>-->
+
+<body align='center'>
+  <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">change password</button>
+    </form>
+
+</body>

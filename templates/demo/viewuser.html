@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Profile {% endblock  %}
+{% block name %}
+    <!-- <button class="btn btn-danger"><a style="color:white" href="{% url 'userProfileView' %}"> change password</a></button> -->
+
+
+<br>
+<body class="">
+<div class="card m-auto justify-content-center" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4 align-middle">
+      <img src="{{profile.picture.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Name:{{profile.name}}</h5>
+        <br>
+        <hr>
+        <p class="card-text">Email:{{profile.email}}</p>
+            <br>
+           <hr>
+        <p class="card-text"><small >phone:{{profile.phone}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+{% endblock name %}
+

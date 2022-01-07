@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}list projects {% endblock  %}
+
+{% block name %}
+ {% csrf_token %}
+
+
+ 
+ <div class="container"> {% for project in projectslist %}
+
+       <div class="row">
+           <div class="card w-100">
+               <div class="card-header">
+                   <p class="card-title"><button class="btn btn-light" ><a class="nav-link" style="color: black" href="{% url 'projectdetails' project.project_id %}">Title: {{ project.title }}</a></button></p>
+               </div>
+               <div class="card-body">
+                      <small>Details:</small>
+                   <p>{{project.project_details}} </p>
+                      <small>Avrage Rate:</small>
+                   <p>{{ project.avg_rate }}</p>
+                      <small>Total Target:</small>
+                   <p>{{project.total_target}} $ </p>
+                      <small>Total Donsations:</small>
+                   <p>{{project.total_donations}} $ </p>
+                      <small>Start Date:</small>
+                   <p>{{project.start_date}}  </p>
+                      <small>End Date:</small>
+                   <p>{{project.end_date}}  </p>
+               </div>
+               
+           </div>
+       </div><!-- End OF Row--> {% endfor %}
+
+     
+
+
+         
+
+       
+
+
+
+       
+
+
+               
+
+
+              
+
+
+           
+
+              
+
+
+           </div>
+
+
+       </div><!-- End OF Row-->
+
+
+      
+              
+           </div>
+       </div>
+
+
+       
+           </div>
+       </div>
+
+
+   </div>
+
+{% endblock name %}

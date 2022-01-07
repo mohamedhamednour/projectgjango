@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<title>{% block title %}Change Password {% endblock %}</title>
+ {% block name %}
+
+<body style="text-align: center;" align='center'>
+    
+    <br>
+  <form method="POST" class="form-group " style="text-align: center;">
+        {% csrf_token %}
+        <legend>Change Password</legend>
+        <hr>
+        <div class="card-body" >
+        <label class="form-control-label">Old Password:</label><br>
+        {{form.old_password}}<br>
+        <label class="form-control-label">New Password:</label><br>
+        {{form.new_password1}}<br>
+        <label class="form-control-label">Confirm New Password:</label><br>
+        {{form.new_password2}}<br>
+    </div>
+    <button type="submit" class="btn btn-success">change password</button>
+</form>
+   
+</body>
+
+</html>
+{% endblock name %}
+

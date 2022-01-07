@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Add P  roject {% endblock  %}
+{% block name %}
+<br>
+ 
+    <div style="align-items: center">
+        <div class="card">
+          <form method="POST" style="text-align: center" class="form-group card-body">
+            {% csrf_token %}
+            <div class="card-body">
+              <h5 class="card-title">Project Title: </h5>
+              <p>{{form.title}}</p>
+              <h5 class="card-title">Project Details: </h5>
+              <p>{{form.project_details}}</p>
+              <h5 class="card-title">Total Target: </h5>
+              <p>{{form.total_target}}</p>
+              <h5 class="card-title">Start Date: </h5>
+              <p>{{form.start_date}}</p>
+              <h5 class="card-title">End Date: </h5>
+              <p>{{form.end_date}}</p>
+              <h5 class="card-title">Category: </h5>
+              <p>{{form.category}}</p>
+              <h5 class="card-title">Tag: </h5>
+              <p>{{form.tag}}</p>
+            </div>
+      
+            <button type="submit" class="btn btn-success">Add Project</button>
+        </form>
+        </div>
+      </div>
+{% endblock name %}
+<!--fields = ['title', 'project_details', 'total_target','total_donations','avg_rate', 'start_date', 'end_date', 'tag', 'category']
+ -->

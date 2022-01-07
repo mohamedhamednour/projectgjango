@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}view comment {% endblock  %}
+
+
+{% block name %}
+
+ 
+{% for com in comment %}
+
+<div class="card-columns">
+<div class="card  style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ com.comment }}</h5>
+    <p class="card-text">{{ com.project_id }} </p>
+    <button class="btn btn-danger"> <a class="nav-link" style="color: white;" href="{% url 'AddReport'%}">Report</a></button>
+  </div> 
+</div>
+</div>{% endfor %}
+{% endblock name %}

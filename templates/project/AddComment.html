@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block name %}
+<div style="align-items: center">
+  <div class="card">
+    <form method="POST" style="text-align: center" class="form-group card-body">
+      {% csrf_token %}
+      <div class="card-body">
+        <h5 class="card-title">select project: {{form.project_id}}</h5>
+        <p class="card-text">Comment:</p>
+        <p class="card-text">{{ form.comment }}</p>
+      </div>
+
+      <button type="submit" class="btn btn-success">add comment</button>
+    </form>
+  </div>
+</div>
+
+{% endblock name %}

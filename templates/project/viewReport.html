@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}view comment {% endblock  %}
+
+
+{% block name %}
+<br>
+ <h5 style="text-align: center;"> Reports on Comments</h5>
+ <hr>
+{% for re in report %}
+
+<div class="card-columns">
+<div class="card  style="width: 18rem;">
+  <div class="card-body">
+    <small>comment name:</small>
+
+    <h5 class="card-title">{{ re.comment_id.comment }}</h5>
+    <small>comment report:</small>
+
+    <p class="card-text">{{ re.report_comment}} </p>
+  </div> 
+</div>
+</div>{% endfor %}
+
+{% endblock name %}

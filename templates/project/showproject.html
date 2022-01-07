@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+
+{% block name %}
+{%  for project in detailOfProject %}
+
+<div class="card-columns m-3">
+    <div class="card w-100 "  style="width: 18rem;">
+        <div class="card-title p-4"><small>Title:</small>
+            <h5 > {{project.title}}</h5></div>
+        
+
+      <div class="card-body ">
+          <small>Details:</small>
+        <p>{{project.project_details}}
+        </p>
+        <small>Total Target:</small>
+        <p>{{project.total_target}} $
+        </p>
+          <small>Donations:</small>
+        <p>{{project.total_donations}} $
+        </p>
+          <small>Rate:</small>
+        <p>{{project.avg_rate}} 
+        </p>
+          <small>Start Date:</small>
+        <p>{{project.start_date}} 
+        </p>
+          <small>End Date:</small>
+        <p>{{project.end_date}} 
+        </p>
+         
+      </div>     <button class="btn btn-danger m-2"> <a class="nav-link" style="color: white;" href="{% url 'deleteProject' project.project_id%}">Delete</a></button>
+      <button class="btn btn-primary m-2"> <a class="nav-link" style="color: white;" href="{% url 'AddReportProject'%}">Report Project</a></button>
+
+    </div>
+      </div>    
+    </div>
+    
+    </div>{% endfor %}
+
+<div style="align-items: center" class="m-3">
+  <div class="card">
+
+<form method="post"style="text-align: center" class="form-group card-body m-3">
+
+  {% csrf_token %}
+  <div class="card-body">
+    <h5 class="card-title">Donations:   {{ updateform.total_donations }}  $
+    </h5>
+    <h5>Rate: {{ updateform.avg_rate }}</h5>
+  </div>
+  <button type="submit" class="btn btn-success">Update</button>
+
+</form></div></div>
+<!-- ==================================================== -->
+<p style="text-align: center;"> Comments Section</p>
+
+{% for com in commentsOnproject %}
+
+<div class="card-columns m-3">
+<div class="card  style="width: 18rem;">
+  <div class="card-body">
+      <small>Comment:</small>
+    <h5 class="card-title">{{ com.comment }}</h5>
+    <hr>
+    <button class="btn btn-danger"> <a class="nav-link" style="color: white;" href="{% url 'AddReport'%}">Report</a></button>
+  </div> 
+</div>
+</div>{% endfor %}
+<div style="align-items: center" class="m-3">
+    <div class="card">
+      <form method="POST" style="text-align: center" class="form-group card-body">
+        {% csrf_token %}
+        <div class="card-body">
+          <h5 class="card-title">select project: {{form.project_id}}</h5>
+          <p class="card-text">Comment:</p>
+          <p class="card-text">{{ form.comment }}</p>
+        </div>
+  
+        <button type="submit" class="btn btn-success">Add comment</button>
+      </form>
+    </div>
+  </div>
+{% endblock name %}
