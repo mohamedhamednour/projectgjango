@@ -11,3 +11,6 @@ INSTALLED_APPS = [
     ...
     'rest_framework',
 ]
+
+
+login by username :mohamedhamednoour and password P@ssw0rd0129879597 or Register
